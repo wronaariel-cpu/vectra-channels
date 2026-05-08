@@ -169,7 +169,7 @@ export default function App() {
               {CATEGORIES.map(cat => (
                 <button
                   key={cat.key}
-                  className={`cat-btn ${activeCats.has(cat.key) ? 'cat-active' : ''}`}
+                  className={`cat-btn cat-detail ${activeCats.has(cat.key) ? 'cat-active' : ''}`}
                   style={activeCats.has(cat.key)
                     ? { background: cat.bg, color: cat.color, borderColor: cat.color }
                     : { borderColor: cat.color, color: cat.color }

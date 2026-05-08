@@ -282,4 +282,5 @@ body.dark .old-list-info { background: #2d2000; border-color: #8a6a00; color: #f
   .col-tp, .col-cat { display: none; }
   .app-main { padding: 0 8px; }
   .channel-table th, .channel-table td { padding: 8px 10px; }
+  .cat-detail { display: none; }
 }
