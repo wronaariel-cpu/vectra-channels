@@ -12,10 +12,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install dependencies & build
+      - name: Install & build
         run: npm ci && npm run build
-      - name: Deploy to Railway
+      - name: Deploy to Railway (with dist/)
         run: |
+          sed -i '/^dist/d' .gitignore
           npm install -g @railway/cli
           railway up --service ${{ secrets.RAILWAY_SERVICE_ID }} --environment ${{ secrets.RAILWAY_ENVIRONMENT_ID }} --detach
         env:
