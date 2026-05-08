@@ -279,6 +279,41 @@ body.dark .empty-row { color: #9ca3af; }
 
 body.dark .old-list-info { background: #2d2000; border-color: #8a6a00; color: #fcd34d; }
 
+/* ── Footer ── */
+.app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 20px 16px;
+  margin-top: 8px;
+  border-top: 1px solid #d0d8e8;
+  color: #5a6a8a;
+  font-size: .82rem;
+}
+.footer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #c8d4e8;
+  object-fit: cover;
+}
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.footer-email {
+  color: #1a3a8f;
+  text-decoration: none;
+  font-size: .78rem;
+}
+.footer-email:hover { text-decoration: underline; }
+
+body.dark .app-footer { border-top-color: #374151; color: #9ca3af; }
+body.dark .footer-avatar { border-color: #374151; }
+body.dark .footer-email { color: #93b4ff; }
+
 /* ── Responsive ── */
 @media (max-width: 700px) {
   .col-cat { display: none; }

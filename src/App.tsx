@@ -4,6 +4,13 @@ import { channelsOld } from './data/channels-old'
 import { CATEGORIES, getCategoryInfo } from './types'
 import type { Category } from './types'
 
+async function gravatarUrl(email: string): Promise<string> {
+  const clean = email.trim().toLowerCase()
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(clean))
+  const hex = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('')
+  return `https://www.gravatar.com/avatar/${hex}?d=mp&s=48`
+}
+
 type SortKey = 'lcn' | 'name' | 'frequency' | 'transponder'
 type SortDir = 'asc' | 'desc'
 type Tab = 'new' | 'old'
@@ -13,6 +20,7 @@ export default function App() {
   const [query, setQuery] = useState('')
   const [tvOnly, setTvOnly] = useState(false)
   const [user, setUser] = useState<{ email: string; role: string } | null>(null)
+  const [gravatarSrc, setGravatarSrc] = useState('')
   const [dark, setDark] = useState(() => localStorage.getItem('vectra-theme') === 'dark')
 
   useEffect(() => {
@@ -21,7 +29,11 @@ export default function App() {
   }, [dark])
 
   useEffect(() => {
-    fetch('/api/me').then(r => r.ok ? r.json() : null).then(d => d && setUser(d))
+    fetch('/api/me').then(r => r.ok ? r.json() : null).then(d => {
+      if (!d) return
+      setUser(d)
+      gravatarUrl(d.email).then(setGravatarSrc)
+    })
   }, [])
   const [activeCats, setActiveCats] = useState<Set<Category>>(new Set())
   const [sortKey, setSortKey] = useState<SortKey>('lcn')
@@ -235,6 +247,16 @@ export default function App() {
           </>
         </>
       </main>
+
+      <footer className="app-footer">
+        {gravatarSrc && (
+          <img src={gravatarSrc} alt="avatar" className="footer-avatar" />
+        )}
+        <div className="footer-text">
+          <span>© 2026 Ariel Wrona</span>
+          <a href="mailto:wrona.ariel@gmail.com" className="footer-email">wrona.ariel@gmail.com</a>
+        </div>
+      </footer>
     </div>
   )
 }
