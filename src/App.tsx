@@ -210,7 +210,7 @@ export default function App() {
                     filtered.map(ch => {
                       const cat = getCategoryInfo(ch.lcn)
                       return (
-                        <tr key={ch.serviceId} style={{ background: cat.bg }}>
+                        <tr key={ch.serviceId} style={dark ? {} : { background: cat.bg }}>
                           <td className="col-lcn lcn-num">{ch.lcn}</td>
                           <td className="col-name ch-name">{ch.name}</td>
                           <td className="col-freq">{ch.frequency}</td>
