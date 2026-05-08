@@ -95,12 +95,14 @@ export default function App() {
             {user && (
               <>
                 <span className="header-user">{user.email}</span>
-                {(user.role === 'admin' || user.role === 'superadmin') && (
-                  <a href="/admin" className="header-link">Panel admina</a>
-                )}
-                <form method="POST" action="/auth/logout" style={{ display: 'inline' }}>
-                  <button type="submit" className="btn-logout">Wyloguj</button>
-                </form>
+                <div className="header-btns">
+                  {(user.role === 'admin' || user.role === 'superadmin') && (
+                    <a href="/admin" className="header-link">Panel admina</a>
+                  )}
+                  <form method="POST" action="/auth/logout" style={{ display: 'inline' }}>
+                    <button type="submit" className="btn-logout">Wyloguj</button>
+                  </form>
+                </div>
               </>
             )}
           </div>
@@ -193,10 +195,10 @@ export default function App() {
                       Nazwa kanału {arrow('name')}
                     </th>
                     <th className="col-freq sortable" onClick={() => handleSort('frequency')}>
-                      Częstotliwość {arrow('frequency')}
+                      Częst. {arrow('frequency')}
                     </th>
                     <th className="col-tp sortable" onClick={() => handleSort('transponder')}>
-                      Transponder {arrow('transponder')}
+                      TP {arrow('transponder')}
                     </th>
                     <th className="col-cat">Kategoria</th>
                   </tr>
