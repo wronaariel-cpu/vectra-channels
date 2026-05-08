@@ -232,6 +232,51 @@ body {
 .placeholder h2 { font-size: 1.3rem; margin-bottom: 8px; color: #2a3a5a; }
 .placeholder p { font-size: .95rem; }
 
+/* ── Theme toggle button ── */
+.btn-theme {
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: background .15s;
+}
+.btn-theme:hover { background: rgba(255,255,255,.25); }
+
+/* ── Dark mode ── */
+body.dark { background: #111827; color: #e5e7eb; }
+
+body.dark .tabs { border-bottom-color: #374151; }
+body.dark .tab-btn { color: #9ca3af; }
+body.dark .tab-btn:hover { color: #c4d4ff; background: #1f2937; }
+body.dark .tab-btn.active { color: #93b4ff; border-bottom-color: #93b4ff; background: #1f2937; }
+
+body.dark .table-wrap { background: #1f2937; box-shadow: 0 2px 12px rgba(0,0,0,.5); }
+body.dark .channel-table thead { background: #0a1128; }
+body.dark .channel-table tbody tr { border-bottom-color: rgba(255,255,255,.06); }
+body.dark .channel-table tbody tr:hover { filter: brightness(1.25); }
+body.dark .channel-table td { color: #e5e7eb; }
+
+body.dark .search-input { background: #1f2937; border-color: #374151; color: #e5e7eb; }
+body.dark .search-input:focus { border-color: #93b4ff; box-shadow: 0 0 0 3px rgba(147,180,255,.15); }
+body.dark .clear-btn { color: #9ca3af; }
+body.dark .clear-btn:hover { background: #374151; color: #e5e7eb; }
+
+body.dark .cat-btn { background: #1f2937; border-color: #374151; color: #9ca3af; }
+body.dark .cat-all { color: #93b4ff; border-color: #93b4ff; }
+body.dark .cat-all-active { background: #1a3a8f; color: #fff; border-color: #1a3a8f; }
+body.dark .cat-tv { color: #93b4ff; border-color: #93b4ff; }
+body.dark .cat-tv-active { background: #1a3a8f; color: #fff; border-color: #1a3a8f; }
+
+body.dark .result-count { color: #9ca3af; }
+body.dark .lcn-num { color: #93b4ff; }
+body.dark .empty-row { color: #9ca3af; }
+
+body.dark .old-list-info { background: #2d2000; border-color: #8a6a00; color: #fcd34d; }
+
 /* ── Responsive ── */
 @media (max-width: 700px) {
   .col-tp, .col-cat { display: none; }

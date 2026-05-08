@@ -113,8 +113,75 @@
     .btn-role:hover { background: #eef2ff; }
     .btn-unblock { color: #a05000; border-color: #f0c040; }
     .btn-unblock:hover { background: #fff8e1; }
+    .btn-reset   { color: #6b00b8; border-color: #c080f0; }
+    .btn-reset:hover { background: #f5e8ff; }
     .btn-delete  { color: #8b1a1a; border-color: #f5a0a0; }
     .btn-delete:hover { background: #fde8e8; }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.5);
+      display: flex; align-items: center; justify-content: center; z-index: 1000;
+    }
+    .modal {
+      background: #fff; border-radius: 12px; padding: 28px 32px;
+      box-shadow: 0 8px 40px rgba(0,0,0,.25); min-width: 320px;
+    }
+    .modal h3 { font-size: 1.05rem; font-weight: 700; color: #1a2a4a; margin-bottom: 6px; }
+    .modal p  { font-size: .85rem; color: #5a6a8a; margin-bottom: 16px; }
+    .modal input {
+      width: 100%; padding: 9px 12px; border: 1.5px solid #c8d4e8;
+      border-radius: 7px; font-size: .92rem; outline: none; margin-bottom: 16px;
+    }
+    .modal input:focus { border-color: #1a3a8f; }
+    .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+    .btn-cancel {
+      padding: 8px 16px; border: 1.5px solid #c8d4e8; border-radius: 7px;
+      background: #fff; font-size: .88rem; cursor: pointer; color: #5a6a8a;
+    }
+    .btn-cancel:hover { background: #f0f4f8; }
+
+    /* ── Theme toggle ── */
+    .btn-theme {
+      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+      color: #fff; padding: 5px 10px; border-radius: 6px;
+      font-size: 1rem; cursor: pointer; line-height: 1; transition: background .15s;
+    }
+    .btn-theme:hover { background: rgba(255,255,255,.25); }
+
+    /* ── Dark mode ── */
+    body.dark { background: #111827; color: #e5e7eb; }
+    body.dark .card { background: #1f2937; box-shadow: 0 2px 12px rgba(0,0,0,.4); }
+    body.dark .card-header { background: #161f30; border-bottom-color: #374151; }
+    body.dark .card-header h2 { color: #c4d4ff; }
+    body.dark .add-user-form { border-bottom-color: #374151; }
+    body.dark .add-user-form label { color: #9ca3af; }
+    body.dark .add-user-form input,
+    body.dark .add-user-form select { background: #111827; border-color: #374151; color: #e5e7eb; }
+    body.dark table thead { background: #0a1128; }
+    body.dark td { border-bottom-color: #374151; color: #e5e7eb; }
+    body.dark tr:hover td { background: #263040; }
+    body.dark .tabs { border-bottom-color: #374151; }
+    body.dark .tab-btn { color: #9ca3af; }
+    body.dark .tab-btn:hover { color: #c4d4ff; background: #1f2937; }
+    body.dark .tab-btn.active { color: #93b4ff; border-bottom-color: #93b4ff; background: #1f2937; }
+    body.dark .log-filter { border-bottom-color: #374151; }
+    body.dark .log-filter input { background: #111827; border-color: #374151; color: #e5e7eb; }
+    body.dark .pagination { color: #9ca3af; }
+    body.dark .btn-page { background: #1f2937; border-color: #374151; color: #9ca3af; }
+    body.dark .btn-page:hover { border-color: #93b4ff; color: #93b4ff; }
+    body.dark .btn-action { background: #1f2937; }
+    body.dark .btn-approve:hover { background: #1a2e10; }
+    body.dark .btn-role:hover { background: #1a2550; }
+    body.dark .btn-reset:hover { background: #2d1a40; }
+    body.dark .btn-unblock:hover { background: #2d1f00; }
+    body.dark .btn-delete:hover { background: #2d0a0a; }
+    body.dark .modal { background: #1f2937; }
+    body.dark .modal h3 { color: #e5e7eb; }
+    body.dark .modal p { color: #9ca3af; }
+    body.dark .modal input { background: #111827; border-color: #374151; color: #e5e7eb; }
+    body.dark .btn-cancel { background: #1f2937; border-color: #374151; color: #9ca3af; }
+    body.dark .btn-cancel:hover { background: #263040; }
 
     /* ── Alert globalny ── */
     .toast {
@@ -163,6 +230,7 @@
     </div>
   </div>
   <div class="header-right">
+    <button class="btn-theme" id="theme-btn" onclick="toggleTheme()" title="Zmień motyw">🌙</button>
     <a href="/">← Wróć do aplikacji</a>
     <form method="POST" action="/auth/logout" style="display:inline">
       <button type="submit" class="btn-logout">Wyloguj</button>
@@ -249,6 +317,19 @@
 
 <div class="toast" id="toast"></div>
 
+<!-- Modal: reset hasła -->
+<div class="modal-overlay" id="reset-modal" style="display:none" onclick="cancelReset(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <h3>Reset hasła</h3>
+    <p id="reset-modal-label">Ustaw nowe hasło dla konta</p>
+    <input type="password" id="reset-new-pass" placeholder="Nowe hasło (min. 6 znaków)" onkeydown="if(event.key==='Enter')confirmReset()"/>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="cancelReset()">Anuluj</button>
+      <button class="btn-add" onclick="confirmReset()">Zapisz hasło</button>
+    </div>
+  </div>
+</div>
+
 <script>
   let allUsers = []
   let allLogs  = []
@@ -319,6 +400,7 @@
         <td>${u.created_at}</td>
         <td><div class="actions">
           ${!u.active && !u.pending ? `<button class="btn-action btn-unblock" onclick="unblock(${u.id})">Odblokuj</button>` : ''}
+          <button class="btn-action btn-reset" onclick="resetPassword(${u.id}, '${u.email}')">Reset hasła</button>
           <button class="btn-action btn-role" onclick="toggleRole(${u.id}, '${u.role}')">${u.role === 'admin' ? '→ User' : '→ Admin'}</button>
           <button class="btn-action btn-delete" onclick="deleteUser(${u.id}, '${u.email}')">Usuń</button>
         </div></td>
@@ -401,6 +483,50 @@
 
   function filterLogs() { renderLogs(allLogs) }
   function changePage(dir) { loadActivity(currentPage + dir) }
+
+  // ── Reset hasła ──
+  let resetUserId = null
+  function resetPassword(id, email) {
+    resetUserId = id
+    document.getElementById('reset-modal-label').textContent = `Ustaw nowe hasło dla: ${email}`
+    document.getElementById('reset-new-pass').value = ''
+    document.getElementById('reset-modal').style.display = 'flex'
+    setTimeout(() => document.getElementById('reset-new-pass').focus(), 50)
+  }
+  function cancelReset(e) {
+    if (e && e.target !== document.getElementById('reset-modal')) return
+    document.getElementById('reset-modal').style.display = 'none'
+    resetUserId = null
+  }
+  function cancelReset() {
+    document.getElementById('reset-modal').style.display = 'none'
+    resetUserId = null
+  }
+  async function confirmReset() {
+    const pass = document.getElementById('reset-new-pass').value
+    if (pass.length < 6) { toast('Hasło musi mieć min. 6 znaków', true); return }
+    const res = await fetch(`/api/users/${resetUserId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: pass })
+    })
+    document.getElementById('reset-modal').style.display = 'none'
+    resetUserId = null
+    if (!res.ok) { const d = await res.json(); toast(d.error, true); return }
+    toast('Hasło zostało zmienione')
+  }
+
+  // ── Dark mode ──
+  function applyTheme(dark) {
+    document.body.classList.toggle('dark', dark)
+    document.getElementById('theme-btn').textContent = dark ? '☀️' : '🌙'
+  }
+  function toggleTheme() {
+    const dark = !document.body.classList.contains('dark')
+    localStorage.setItem('vectra-theme', dark ? 'dark' : 'light')
+    applyTheme(dark)
+  }
+  applyTheme(localStorage.getItem('vectra-theme') === 'dark')
 
   // Init
   fetch('/api/me').then(r => r.json()).then(me => {

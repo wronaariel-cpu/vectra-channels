@@ -104,6 +104,17 @@ function requireAdmin(req, res, next) {
 // Zasoby React (JS/CSS) — publiczne
 app.use('/assets', express.static(path.join(__dirname, 'dist', 'assets')))
 
+// PWA — service worker i manifest muszą być dostępne bez logowania
+const distDir = path.join(__dirname, 'dist')
+app.get('/sw.js',                (_, res) => res.sendFile(path.join(distDir, 'sw.js')))
+app.get('/manifest.webmanifest', (_, res) => res.sendFile(path.join(distDir, 'manifest.webmanifest')))
+app.get('/registerSW.js',        (_, res) => res.sendFile(path.join(distDir, 'registerSW.js')))
+app.get('/icon.svg',             (_, res) => res.sendFile(path.join(__dirname, 'public', 'icon.svg')))
+app.get('/workbox-:hash.js',     (req, res, next) => {
+  const file = path.join(distDir, 'workbox-' + req.params.hash + '.js')
+  res.sendFile(file, err => err && next())
+})
+
 // ─── Trasy publiczne (auth) ───────────────────────────────────────────────────
 
 app.get('/login', (req, res) => {

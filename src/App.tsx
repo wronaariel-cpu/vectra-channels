@@ -13,6 +13,12 @@ export default function App() {
   const [query, setQuery] = useState('')
   const [tvOnly, setTvOnly] = useState(false)
   const [user, setUser] = useState<{ email: string; role: string } | null>(null)
+  const [dark, setDark] = useState(() => localStorage.getItem('vectra-theme') === 'dark')
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', dark)
+    localStorage.setItem('vectra-theme', dark ? 'dark' : 'light')
+  }, [dark])
 
   useEffect(() => {
     fetch('/api/me').then(r => r.ok ? r.json() : null).then(d => d && setUser(d))
@@ -83,6 +89,9 @@ export default function App() {
             </div>
           </div>
           <div className="header-actions">
+            <button className="btn-theme" onClick={() => setDark(d => !d)} title="Zmień motyw">
+              {dark ? '☀️' : '🌙'}
+            </button>
             {user && (
               <>
                 <span className="header-user">{user.email}</span>
