@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logowanie – Vectra Kanały</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0d1b4b 0%, #1a3a8f 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(0,0,0,.35);
+      width: 100%;
+      max-width: 420px;
+      overflow: hidden;
+    }
+    .card-header {
+      background: linear-gradient(135deg, #0d1b4b, #1a3a8f);
+      color: #fff;
+      padding: 28px 32px 22px;
+      text-align: center;
+    }
+    .card-header .logo { font-size: 2.4rem; margin-bottom: 8px; }
+    .card-header h1 { font-size: 1.25rem; font-weight: 700; }
+    .card-header p { font-size: .82rem; opacity: .7; margin-top: 4px; }
+
+    .tabs { display: flex; border-bottom: 2px solid #e8edf5; }
+    .tab {
+      flex: 1; padding: 14px; text-align: center;
+      font-size: .9rem; font-weight: 600; color: #8a9ab5;
+      cursor: pointer; border-bottom: 3px solid transparent;
+      margin-bottom: -2px; transition: all .15s;
+    }
+    .tab.active { color: #1a3a8f; border-bottom-color: #1a3a8f; }
+
+    .panel { display: none; padding: 28px 32px 32px; }
+    .panel.active { display: block; }
+
+    .alert {
+      padding: 10px 14px; border-radius: 8px;
+      font-size: .85rem; margin-bottom: 16px;
+      display: none;
+    }
+    .alert.error   { background: #fde8e8; color: #8b1a1a; border: 1px solid #f5a0a0; display: block; }
+    .alert.success { background: #e8f5e2; color: #2d5a1b; border: 1px solid #a0d080; display: block; }
+
+    label { display: block; font-size: .85rem; font-weight: 600; color: #3a4a6a; margin-bottom: 6px; }
+    input[type=email], input[type=password] {
+      width: 100%; padding: 11px 14px;
+      border: 1.5px solid #c8d4e8; border-radius: 8px;
+      font-size: .95rem; outline: none; transition: border-color .15s, box-shadow .15s;
+      margin-bottom: 16px;
+    }
+    input:focus { border-color: #1a3a8f; box-shadow: 0 0 0 3px rgba(26,58,143,.12); }
+
+    .btn {
+      width: 100%; padding: 12px;
+      background: linear-gradient(135deg, #0d1b4b, #1a3a8f);
+      color: #fff; border: none; border-radius: 8px;
+      font-size: 1rem; font-weight: 600; cursor: pointer;
+      transition: opacity .15s;
+    }
+    .btn:hover { opacity: .88; }
+
+    .hint { font-size: .78rem; color: #7a8aaa; text-align: center; margin-top: 14px; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="card-header">
+    <div class="logo">📡</div>
+    <h1>Vectra – Lista Kanałów</h1>
+    <p>Zabrze / Play</p>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('login')">Logowanie</div>
+    <div class="tab" onclick="switchTab('register')">Rejestracja</div>
+  </div>
+
+  <!-- Panel logowania -->
+  <div class="panel active" id="panel-login">
+    <div id="alert-login" class="alert"></div>
+    <form method="POST" action="/auth/login">
+      <label>Adres e-mail</label>
+      <input type="email" name="email" required autocomplete="email" placeholder="twoj@email.pl"/>
+      <label>Hasło</label>
+      <input type="password" name="password" required autocomplete="current-password" placeholder="••••••••"/>
+      <button type="submit" class="btn">Zaloguj się</button>
+    </form>
+    <p class="hint">Nie masz konta? Przejdź do zakładki Rejestracja.</p>
+  </div>
+
+  <!-- Panel rejestracji -->
+  <div class="panel" id="panel-register">
+    <div id="alert-register" class="alert"></div>
+    <form method="POST" action="/auth/register">
+      <label>Adres e-mail</label>
+      <input type="email" name="email" required autocomplete="email" placeholder="twoj@email.pl"/>
+      <label>Hasło (min. 6 znaków)</label>
+      <input type="password" name="password" required autocomplete="new-password" placeholder="••••••••"/>
+      <button type="submit" class="btn">Zarejestruj się</button>
+    </form>
+    <p class="hint">Konto wymaga zatwierdzenia przez administratora.</p>
+  </div>
+</div>
+
+<script>
+  function switchTab(tab) {
+    document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', (i === 0) === (tab === 'login')))
+    document.getElementById('panel-login').classList.toggle('active', tab === 'login')
+    document.getElementById('panel-register').classList.toggle('active', tab === 'register')
+  }
+
+  // Obsługa komunikatów z query string
+  const params = new URLSearchParams(location.search)
+  const error = params.get('error')
+  const reg   = params.get('reg')
+
+  const alertLogin = document.getElementById('alert-login')
+  const alertReg   = document.getElementById('alert-register')
+
+  if (error === '1')       { alertLogin.textContent = 'Nieprawidłowy e-mail lub hasło.'; alertLogin.className = 'alert error'; }
+  if (error === 'blocked') { alertLogin.textContent = `Konto zablokowane po ${5} nieudanych próbach. Spróbuj za 15 minut.`; alertLogin.className = 'alert error'; }
+
+  if (reg === 'ok')     { switchTab('login'); alertLogin.textContent = 'Konto utworzone — czeka na zatwierdzenie przez administratora.'; alertLogin.className = 'alert success'; }
+  if (reg === 'exists') { switchTab('register'); alertReg.textContent = 'Ten e-mail jest już zarejestrowany.'; alertReg.className = 'alert error'; }
+  if (reg === 'short')  { switchTab('register'); alertReg.textContent = 'Hasło musi mieć co najmniej 6 znaków.'; alertReg.className = 'alert error'; }
+  if (reg === 'error')  { switchTab('register'); alertReg.textContent = 'Błąd rejestracji — uzupełnij wszystkie pola.'; alertReg.className = 'alert error'; }
+</script>
+</body>
+</html>
