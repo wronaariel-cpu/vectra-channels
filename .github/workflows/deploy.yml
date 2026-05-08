@@ -12,7 +12,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install -g @railway/cli
-      - run: railway up --service ${{ secrets.RAILWAY_SERVICE_ID }} --environment ${{ secrets.RAILWAY_ENVIRONMENT_ID }} --detach
+      - name: Install dependencies & build
+        run: npm ci && npm run build
+      - name: Deploy to Railway
+        run: |
+          npm install -g @railway/cli
+          railway up --service ${{ secrets.RAILWAY_SERVICE_ID }} --environment ${{ secrets.RAILWAY_ENVIRONMENT_ID }} --detach
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}

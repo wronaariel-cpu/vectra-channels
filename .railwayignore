@@ -1,0 +1,4 @@
+# Nadpisuje .gitignore dla railway up — dist/ musi być wysłany
+node_modules/
+.env
+*.env.local
