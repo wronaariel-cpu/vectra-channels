@@ -11,9 +11,12 @@ const PORT = process.env.PORT || 3000
 const LOGIN_MAX_ATTEMPTS = 5
 const LOGIN_BLOCK_MINUTES = 15
 
+const dbUrl = process.env.DATABASE_URL || ''
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+  connectionString: dbUrl,
+  ssl: (process.env.NODE_ENV === 'production' && !dbUrl.includes('.railway.internal'))
+    ? { rejectUnauthorized: false }
+    : false,
 })
 
 // ─── Inicjalizacja bazy ───────────────────────────────────────────────────────
