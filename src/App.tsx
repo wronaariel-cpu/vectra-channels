@@ -87,11 +87,11 @@ export default function App() {
               <h1>Vectra – Lista Kanałów</h1>
               <p>Zabrze / Play</p>
             </div>
-          </div>
-          <div className="header-actions">
             <button className="btn-theme" onClick={() => setDark(d => !d)} title="Zmień motyw">
               {dark ? '☀️' : '🌙'}
             </button>
+          </div>
+          <div className="header-actions">
             {user && (
               <>
                 <span className="header-user">{user.email}</span>
