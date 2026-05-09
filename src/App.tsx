@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { channelsNew } from './data/channels-new'
 import { channelsOld } from './data/channels-old'
-import { analogChannels } from './data/channels-analog'
+import { analogChannelsOld, analogChannelsNew } from './data/channels-analog'
 import { CATEGORIES, getCategoryInfo } from './types'
 import type { Category } from './types'
 
@@ -280,7 +280,7 @@ export default function App() {
             <div className="old-list-info">
               {tab === 'analog-old'
                 ? <><strong>Układ aktualny (stary):</strong> pasmo analogowe 111–223 MHz — programy nadawane analogowo w sieci Vectra Zabrze.</>
-                : <><strong>Propozycja nowego układu:</strong> kanały analogowe zastąpione przez DOCSIS 3.1 OFDM. Jedynie TV PULS pozostaje analogowy.</>
+                : <><strong>Nowy układ:</strong> programy analogowe przeniesione na wyższe częstotliwości (703–799 MHz). TV PULS pozostaje na 111 MHz.</>
               }
             </div>
             <div className="table-wrap">
@@ -290,23 +290,22 @@ export default function App() {
                     <th className="col-lcn">Kanał</th>
                     <th className="col-freq">Częst. (MHz)</th>
                     <th>Program</th>
-                    <th className="col-tp">Status</th>
+                    <th className="col-tp">Typ</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {analogChannels.map(ch => {
-                    const program = tab === 'analog-old' ? ch.programStary : ch.programNowy
-                    const isDocsis = program.includes('DOCSIS')
-                    const isWolny = program.toLowerCase().includes('wolny')
-                    const statusColor = isDocsis ? { bg: '#f0f0f0', color: '#666', border: '#ccc' }
-                                     : isWolny  ? { bg: '#fff8e1', color: '#8a6000', border: '#f0c040' }
-                                     :            { bg: '#e8f5e2', color: '#2d5a1b', border: '#5a9a3a' }
-                    const statusLabel = isDocsis ? 'Internet' : isWolny ? 'Wolny' : 'TV'
+                  {(tab === 'analog-old' ? analogChannelsOld : analogChannelsNew).map(ch => {
+                    const isWolny = ch.program.toLowerCase().includes('wolny')
+                    const isLokalny = ch.program.toLowerCase().includes('lokalny')
+                    const statusColor = isWolny   ? { bg: '#fff8e1', color: '#8a6000', border: '#f0c040' }
+                                     : isLokalny  ? { bg: '#e8f0ff', color: '#1a3a8f', border: '#4a6abf' }
+                                     :              { bg: '#e8f5e2', color: '#2d5a1b', border: '#5a9a3a' }
+                    const statusLabel = isWolny ? 'Wolny' : isLokalny ? 'Lokalny' : 'TV'
                     return (
                       <tr key={ch.id}>
                         <td className="col-lcn lcn-num">{ch.id}</td>
                         <td className="col-freq">{ch.frequency.toFixed(2)}</td>
-                        <td className="ch-name">{program}</td>
+                        <td className="ch-name">{ch.program}</td>
                         <td className="col-tp">
                           <span className="cat-badge" style={{ background: statusColor.bg, color: statusColor.color, borderColor: statusColor.border }}>
                             {statusLabel}

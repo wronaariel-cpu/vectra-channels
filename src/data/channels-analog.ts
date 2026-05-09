@@ -1,24 +1,40 @@
 export interface AnalogChannel {
   id: string
   frequency: number
-  programStary: string
-  programNowy: string
+  program: string
 }
 
-export const analogChannels: AnalogChannel[] = [
-  { id: 'S 01', frequency: 111.25, programStary: 'TV PULS',                          programNowy: 'TV PULS' },
-  { id: 'S 02', frequency: 119.25, programStary: 'TV TRWAM',                         programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'S 03', frequency: 127.25, programStary: 'Wolny – kamery / info lokalne',     programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'S 04', frequency: 135.25, programStary: 'Wolny lokalny',                    programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'S 05', frequency: 143.25, programStary: 'Wolny lokalny',                    programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'S 06', frequency: 151.25, programStary: 'POLSAT',                           programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'S 07', frequency: 159.25, programStary: 'TV4',                              programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'S 08', frequency: 167.25, programStary: 'TVN',                              programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'K 06', frequency: 175.25, programStary: 'TVP INFO',                         programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'K 07', frequency: 183.25, programStary: 'TVP 1',                            programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'K 08', frequency: 191.25, programStary: 'TVT',                              programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'K 09', frequency: 199.25, programStary: 'TVP POLONIA',                      programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'K 10', frequency: 207.25, programStary: 'TVP 2',                            programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'K 11', frequency: 215.25, programStary: 'TVP Historia',                     programNowy: 'DOCSIS 3.1 OFDM' },
-  { id: 'K 12', frequency: 223.25, programStary: 'TVP 3 Katowice',                   programNowy: 'DOCSIS 3.1 OFDM' },
+export const analogChannelsOld: AnalogChannel[] = [
+  { id: 'S 01', frequency: 111.25, program: 'TV PULS' },
+  { id: 'S 02', frequency: 119.25, program: 'TV TRWAM' },
+  { id: 'S 03', frequency: 127.25, program: 'Wolny – kamery / info lokalne' },
+  { id: 'S 04', frequency: 135.25, program: 'Wolny lokalny' },
+  { id: 'S 05', frequency: 143.25, program: 'Wolny lokalny' },
+  { id: 'S 06', frequency: 151.25, program: 'POLSAT' },
+  { id: 'S 07', frequency: 159.25, program: 'TV4' },
+  { id: 'S 08', frequency: 167.25, program: 'TVN' },
+  { id: 'K 06', frequency: 175.25, program: 'TVP INFO' },
+  { id: 'K 07', frequency: 183.25, program: 'TVP 1' },
+  { id: 'K 08', frequency: 191.25, program: 'TVT' },
+  { id: 'K 09', frequency: 199.25, program: 'TVP POLONIA' },
+  { id: 'K 10', frequency: 207.25, program: 'TVP 2' },
+  { id: 'K 11', frequency: 215.25, program: 'TVP Historia' },
+  { id: 'K 12', frequency: 223.25, program: 'TVP 3 Katowice' },
+]
+
+export const analogChannelsNew: AnalogChannel[] = [
+  { id: 'S 01', frequency: 111.25, program: 'TV PULS' },
+  { id: 'K 50', frequency: 703.25, program: 'POLSAT' },
+  { id: 'K 51', frequency: 711.25, program: 'TV 4' },
+  { id: 'K 52', frequency: 719.25, program: 'TVN' },
+  { id: 'K 53', frequency: 727.25, program: 'TVP INFO' },
+  { id: 'K 54', frequency: 735.25, program: 'TVP 1' },
+  { id: 'K 55', frequency: 743.25, program: 'TVP 2' },
+  { id: 'K 56', frequency: 751.25, program: 'TVP HISTORIA' },
+  { id: 'K 57', frequency: 759.25, program: 'TVP 3 KATOWICE' },
+  { id: 'K 58', frequency: 767.25, program: 'TVT' },
+  { id: 'K 59', frequency: 775.25, program: 'TVP POLONIA' },
+  { id: 'K 60', frequency: 783.25, program: 'TV TRWAM' },
+  { id: 'K 61', frequency: 791.25, program: 'LOKALNY – TV ZABRZE' },
+  { id: 'K 62', frequency: 799.25, program: 'LOKALNY – ŚTM' },
 ]
