@@ -39,6 +39,10 @@ export default function App() {
   const [sortKey, setSortKey] = useState<SortKey>('lcn')
   const [sortDir, setSortDir] = useState<SortDir>('asc')
 
+  const radioCat = CATEGORIES.find(c => c.key === 'radio')!
+  const detailCats = CATEGORIES.filter(c => c.key !== 'radio')
+  const dropdownValue = [...activeCats].find(k => detailCats.some(c => c.key === k)) ?? ''
+
   const resetFilters = () => { setTvOnly(false); setActiveCats(new Set()) }
 
   const toggleCategory = (cat: Category) => {
@@ -180,19 +184,29 @@ export default function App() {
               >
                 TV
               </button>
-              {CATEGORIES.map(cat => (
-                <button
-                  key={cat.key}
-                  className={`cat-btn ${cat.key !== 'radio' ? 'cat-detail' : ''} ${activeCats.has(cat.key) ? 'cat-active' : ''}`}
-                  style={activeCats.has(cat.key)
-                    ? { background: cat.bg, color: cat.color, borderColor: cat.color }
-                    : { borderColor: cat.color, color: cat.color }
-                  }
-                  onClick={() => toggleCategory(cat.key)}
-                >
-                  {cat.label}
-                </button>
-              ))}
+              <button
+                className="cat-btn"
+                style={activeCats.has('radio')
+                  ? { background: radioCat.bg, color: radioCat.color, borderColor: radioCat.color }
+                  : { borderColor: radioCat.color, color: radioCat.color }
+                }
+                onClick={() => toggleCategory('radio')}
+              >
+                Radio
+              </button>
+              <select
+                className="cat-select"
+                value={dropdownValue}
+                onChange={e => {
+                  setTvOnly(false)
+                  setActiveCats(e.target.value ? new Set([e.target.value as Category]) : new Set())
+                }}
+              >
+                <option value="">Więcej kategorii…</option>
+                {detailCats.map(cat => (
+                  <option key={cat.key} value={cat.key}>{cat.label}</option>
+                ))}
+              </select>
             </div>
 
             {/* Table */}
