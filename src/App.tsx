@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { channelsNew } from './data/channels-new'
 import { channelsOld } from './data/channels-old'
+import { analogChannels } from './data/channels-analog'
 import { CATEGORIES, getCategoryInfo } from './types'
 import type { Category } from './types'
 
@@ -13,7 +14,7 @@ async function gravatarUrl(email: string): Promise<string> {
 
 type SortKey = 'lcn' | 'name' | 'frequency' | 'transponder'
 type SortDir = 'asc' | 'desc'
-type Tab = 'new' | 'old'
+type Tab = 'new' | 'old' | 'analog-new' | 'analog-old'
 
 export default function App() {
   const [tab, setTab] = useState<Tab>('new')
@@ -140,6 +141,18 @@ export default function App() {
           >
             Stara lista
           </button>
+          <button
+            className={`tab-btn ${tab === 'analog-new' ? 'active' : ''}`}
+            onClick={() => { setTab('analog-new'); setQuery(''); resetFilters() }}
+          >
+            Analog – Nowa
+          </button>
+          <button
+            className={`tab-btn ${tab === 'analog-old' ? 'active' : ''}`}
+            onClick={() => { setTab('analog-old'); setQuery(''); resetFilters() }}
+          >
+            Analog – Stara
+          </button>
         </div>
 
         <>
@@ -260,6 +273,53 @@ export default function App() {
             </div>
           </>
         </>
+
+        {/* Analog tabs */}
+        {(tab === 'analog-new' || tab === 'analog-old') && (
+          <>
+            <div className="old-list-info">
+              {tab === 'analog-old'
+                ? <><strong>Układ aktualny (stary):</strong> pasmo analogowe 111–223 MHz — programy nadawane analogowo w sieci Vectra Zabrze.</>
+                : <><strong>Propozycja nowego układu:</strong> kanały analogowe zastąpione przez DOCSIS 3.1 OFDM. Jedynie TV PULS pozostaje analogowy.</>
+              }
+            </div>
+            <div className="table-wrap">
+              <table className="channel-table">
+                <thead>
+                  <tr>
+                    <th className="col-lcn">Kanał</th>
+                    <th className="col-freq">Częst. (MHz)</th>
+                    <th>Program</th>
+                    <th className="col-tp">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {analogChannels.map(ch => {
+                    const program = tab === 'analog-old' ? ch.programStary : ch.programNowy
+                    const isDocsis = program.includes('DOCSIS')
+                    const isWolny = program.toLowerCase().includes('wolny')
+                    const statusColor = isDocsis ? { bg: '#f0f0f0', color: '#666', border: '#ccc' }
+                                     : isWolny  ? { bg: '#fff8e1', color: '#8a6000', border: '#f0c040' }
+                                     :            { bg: '#e8f5e2', color: '#2d5a1b', border: '#5a9a3a' }
+                    const statusLabel = isDocsis ? 'Internet' : isWolny ? 'Wolny' : 'TV'
+                    return (
+                      <tr key={ch.id}>
+                        <td className="col-lcn lcn-num">{ch.id}</td>
+                        <td className="col-freq">{ch.frequency.toFixed(2)}</td>
+                        <td className="ch-name">{program}</td>
+                        <td className="col-tp">
+                          <span className="cat-badge" style={{ background: statusColor.bg, color: statusColor.color, borderColor: statusColor.border }}>
+                            {statusLabel}
+                          </span>
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
       </main>
 
       <footer className="app-footer">
