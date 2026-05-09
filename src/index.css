@@ -28,9 +28,9 @@ body {
   cursor: pointer; transition: background .15s;
 }
 .btn-logout:hover { background: rgba(255,255,255,.25); }
-.header-logo { font-size: 2rem; }
-.header-title h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: -.5px; }
-.header-title p { font-size: .8rem; opacity: .7; margin-top: 2px; }
+.header-logo { font-size: 2.8rem; }
+.header-title h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -.5px; }
+.header-title p { font-size: .9rem; opacity: .7; margin-top: 3px; }
 
 /* ── Main ── */
 .app-main {
@@ -296,16 +296,16 @@ body.dark .old-list-info { background: #2d2000; border-color: #8a6a00; color: #f
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  padding: 20px 16px;
-  margin-top: 8px;
+  gap: 10px;
+  padding: 10px 16px;
+  margin-top: 4px;
   border-top: 1px solid #d0d8e8;
   color: #5a6a8a;
-  font-size: .82rem;
+  font-size: .75rem;
 }
 .footer-avatar {
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   border: 2px solid #c8d4e8;
   object-fit: cover;
