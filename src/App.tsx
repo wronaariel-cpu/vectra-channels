@@ -322,9 +322,7 @@ export default function App() {
       </main>
 
       <footer className="app-footer">
-        {gravatarSrc && (
-          <img src={gravatarSrc} alt="avatar" className="footer-avatar" />
-        )}
+        <img src="/avatar.jpg" alt="Ariel Wrona" className="footer-avatar" />
         <div className="footer-text">
           <span>© 2026 Ariel Wrona</span>
           <a href="mailto:wrona.ariel@gmail.com" className="footer-email">wrona.ariel@gmail.com</a>

@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['icon.svg'],
+      includeAssets: ['icon.svg', 'avatar.jpg'],
       manifest: {
         name: 'Vectra – Lista Kanałów',
         short_name: 'Vectra',
