@@ -155,7 +155,7 @@ export default function App() {
           </button>
         </div>
 
-        <>
+        {(tab === 'new' || tab === 'old') && <>
           {tab === 'old' && (
             <div className="old-list-info">
               Te same kanały co nowa lista — częstotliwości wg <strong>Vectra Zabrze (OLD NIT)</strong>.
@@ -272,7 +272,7 @@ export default function App() {
               </table>
             </div>
           </>
-        </>
+        </>}
 
         {/* Analog tabs */}
         {(tab === 'analog-new' || tab === 'analog-old') && (
