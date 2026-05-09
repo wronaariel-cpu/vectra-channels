@@ -110,6 +110,7 @@ app.get('/sw.js',                (_, res) => res.sendFile(path.join(distDir, 'sw
 app.get('/manifest.webmanifest', (_, res) => res.sendFile(path.join(distDir, 'manifest.webmanifest')))
 app.get('/registerSW.js',        (_, res) => res.sendFile(path.join(distDir, 'registerSW.js')))
 app.get('/icon.svg',             (_, res) => res.sendFile(path.join(__dirname, 'public', 'icon.svg')))
+app.get('/avatar.jpg',           (_, res) => res.sendFile(path.join(__dirname, 'public', 'avatar.jpg')))
 app.get('/workbox-:hash.js',     (req, res, next) => {
   const file = path.join(distDir, 'workbox-' + req.params.hash + '.js')
   res.sendFile(file, err => err && next())
