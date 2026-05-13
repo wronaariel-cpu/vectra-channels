@@ -1,0 +1,1257 @@
+﻿{
+    "ChannelPlans":  [
+                         {
+                             "Channels":  [
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  114000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  117750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  111250000
+                                                                    },
+                                                  "Id":  "2dd31135-d214-4e34-9d44-2968a68204d4",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "TV PULS",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  706000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  709750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  703250000
+                                                                    },
+                                                  "Id":  "a46172be-35be-4208-8722-9b645df7bd84",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "POLSAT",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  714000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  717750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  711250000
+                                                                    },
+                                                  "Id":  "11372c86-df13-41c7-a908-0700c007b9c9",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "TV 4",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  722000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  725750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  719250000
+                                                                    },
+                                                  "Id":  "d9f4b28a-ba0e-4c9b-b1c0-ee5c4f56d374",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "TVN",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  730000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  733750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  727250000
+                                                                    },
+                                                  "Id":  "ad2d1045-d01b-4ac9-b494-9b6a136527b6",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "TVP INFO",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  738000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  741750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  735250000
+                                                                    },
+                                                  "Id":  "c80b40a4-926a-465c-87a9-ee116f17587b",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "TVP 1",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  746000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  749750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  743250000
+                                                                    },
+                                                  "Id":  "325f0807-d058-4639-a366-eade328c453f",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "TVP 2",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  754000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  757750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  751250000
+                                                                    },
+                                                  "Id":  "ec9d9e7c-95fe-471e-91ce-2952585aeae6",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "TVP HISTORIA",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  762000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  765750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  759250000
+                                                                    },
+                                                  "Id":  "67a61a17-a3c7-415c-9687-3b5706956875",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "TVP 3 KATOWICE",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  770000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  772750000,
+                                                                        "Standard":  "PALG",
+                                                                        "VideoFrequency":  767250000
+                                                                    },
+                                                  "Id":  "3a5b8718-cf4a-4a51-ad29-a711384e38a7",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "TVT",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  778000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  781750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  775250000
+                                                                    },
+                                                  "Id":  "df7bc604-9906-495a-9af0-c82c8cc2d8ec",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "TVP POLONIA",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  786000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  789750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  783250000
+                                                                    },
+                                                  "Id":  "90c0abda-1b84-4f87-9fe0-d8e09697bd04",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "TV TRWAM",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  794000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  797750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  791250000
+                                                                    },
+                                                  "Id":  "c4a0af6b-12a8-47eb-b225-97ea2a7465a8",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "LOKALNY TV ZABRZE",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  802000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  805750000,
+                                                                        "Standard":  "PALD",
+                                                                        "VideoFrequency":  799250000
+                                                                    },
+                                                  "Id":  "52d66b2a-6879-4f51-99b7-b72e062bb494",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "LOKALNY STM",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  818000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "AudioFrequency":  820750000,
+                                                                        "Standard":  "PALG",
+                                                                        "VideoFrequency":  815250000
+                                                                    },
+                                                  "Id":  "9e075310-74a5-4a5d-9274-2f0c51ebf34f",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "KANAL TECHNICZNY",
+                                                  "Type":  "Analog"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  122000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "b0b8656b-24b6-44ff-9bde-b5651adbd96c",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  130000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "3c62d630-9f30-4c35-afca-76ae86197e42",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  138000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "b5d69933-26bc-4219-9751-119e7694e1c9",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  146000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "0c9d7c31-6b0f-4fe2-8cb7-15a80b0165b4",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  154000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "e13fbe2d-3eb8-42fc-a2da-b0d8495e328a",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  162000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "5a265256-1238-4225-ab70-fa3913c7e622",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  170000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "fd274b20-b21b-42b6-b872-28ecb88fea75",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  178000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "3b7adb5b-14cc-49d9-aec2-62e07be0be33",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  186000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "3fba6d7e-d747-4686-8009-6eb3ea743449",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  194000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "61f9b5ba-e7f8-4bfa-aae9-8ce9e5dbc5cb",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  202000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "09d3ae12-081a-43f9-9d88-0886b066595d",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  210000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "d6ab6eae-73f0-4bc2-983d-1e21a9e213b5",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  218000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "413cf1b7-5524-422e-bd43-089c9d7c97a0",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  226000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "ecc290cb-e0e6-46e4-add2-30631ac0a962",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  234000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "2d8b1bbd-fe62-417b-bb41-cebbe0895965",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  242000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "00756f0f-8eb3-45f2-9550-fc49756c8580",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  250000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "3fddd011-22f0-415a-9901-1f116a259ad1",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  258000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "65792ab3-53d1-4584-abff-ecc382b833f8",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "OFDM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  266000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "b7415231-1141-485f-83f9-6ab848609307",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-131",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  274000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "279c3c6d-e3e3-41d4-b7ce-7060b2e60fe9",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-133",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  282000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "1a5b5f23-a233-41d6-a4df-0ab50f995de0",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-121",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  290000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "4e1ae9bf-9188-4442-92b4-34d10000d4a7",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-122",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  298000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "fe5ca770-e5e8-4d2c-a9fa-77e65db83d7e",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-123",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  306000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "4a802533-c8d6-44ee-a60c-1b29442baf0a",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-135",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  314000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "e5a133f2-96fb-4ba9-a0de-eb69af9a5c34",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-124",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  322000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "3eaa93c4-07a5-4abb-b1e0-5b0a4fdb1f3d",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-125",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  330000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "77f12a8d-5e74-44b7-bd1b-37db5fb66f23",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-126",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  338000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "effabd91-669c-4065-add8-9b013de3d7fa",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-127",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  346000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "338df1ad-e276-4479-997d-d508e03fdc61",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-128",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  354000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "4f30ee96-c21b-4921-a428-b94b0cc6a71c",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  362000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "6aa5fe65-0749-4600-b969-380a0287cff6",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  370000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "731606b9-991b-4418-b64e-5c2ab21538bb",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  378000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "082209e3-121d-4eb4-b71d-5946669545c0",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  386000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "4fd7d8db-ca41-475f-be8e-1d452b19b423",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  394000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "5d461f2e-beb3-41bb-a0c1-e9519dc18bd7",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  402000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "13d2bb28-7ca0-4c2b-b82a-95f9962afc92",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  410000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "ffe35d91-5bfe-435c-929f-514812860c2a",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  418000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "4d008e40-03ba-4787-a7d4-f49e357f3091",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  434000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "14991f5d-e637-4f45-9c44-eb5e574117f1",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  442000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "d747de9d-cb66-486a-875e-944839a8a5a2",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  450000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "bd126477-7494-4d85-a364-ebb03fb82b14",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  458000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "d3696bd3-b4a4-4870-89a1-eb25915c9d2d",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  466000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "47038690-38b3-4efd-8e38-7f43c69349ee",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  474000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "b5946626-9927-4dc7-a8c5-6a4fcc0422f7",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  482000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "5220b7fe-6191-485f-82a2-63717d2d328b",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  490000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "0982805a-a4b3-48f5-b5ac-83ce882e4967",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  498000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "c4eae537-1c10-4066-85b7-1349ffb95fe7",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  506000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "8f89acef-3db3-4c5c-afed-c5ea39abbfc0",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  514000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "8a40d2e6-555d-410b-ac05-c1e2e815e729",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  522000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "6d22bfb8-9d96-4322-b589-aade61db8230",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  530000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "3fed979c-e430-4544-bb64-f669866044b1",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  538000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "6d98c09e-f610-4977-9054-0209b680aa28",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  546000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6952000
+                                                                    },
+                                                  "Id":  "c5ccdcbb-1646-4199-a5e4-da28cba85453",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DS",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  554000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "520009d7-815d-4c8e-b797-5fc6ec4bd2eb",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-137",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  562000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "896f5849-cb53-4dbb-87e8-d6229a87fef7",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-153",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  570000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "8e8799c9-bac6-48e6-9873-80627bb13a9e",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-136",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  578000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "894853d2-675f-4824-bf16-b2210ed4fcff",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-102",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  586000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "5c5e1be7-1e86-49df-b550-410841518567",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-101",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  594000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "62cc0bab-95f8-4c41-9537-5ad069aa576a",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-104",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  602000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "8e692c1e-181a-41ba-982c-25df8248152f",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-105",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  610000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "89c1205c-d05b-43e0-a00a-3e8bdce02191",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-106",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  618000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "8f5a05eb-1cca-49e2-b37f-a26662290ef5",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-107",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  626000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "efe63ea7-a4bf-440d-9696-c16b2ffce9bb",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-130",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  642000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "73df7c8c-8351-4e6b-b32a-d0964dfdd0b8",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-109",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  650000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "1d245f0f-c460-4a51-8610-6cdb8cca2ea2",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-108",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  658000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "a1c04747-85f1-4e7e-b9fd-b99a2eab04a2",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-129",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  666000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "7bd7e3c7-b6a1-47ae-9058-a96f06c20f91",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-132",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  674000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "df62a69e-d62e-4ded-835c-0665b0454ae5",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-110",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  690000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "a429d36e-2d11-42c3-9169-3db4ca0328bf",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-134",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  698000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6875000
+                                                                    },
+                                                  "Id":  "b9e4157f-3a7f-4f44-a9d7-8203e349311d",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "DTV-103",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  826000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6900000
+                                                                    },
+                                                  "Id":  "61ea710c-67e0-4211-b833-fa242af4ecf5",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "VoD V",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  834000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6900000
+                                                                    },
+                                                  "Id":  "40ee4a82-b4ac-4703-a20a-d79f6854a5fc",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "VoD V",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  842000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6900000
+                                                                    },
+                                                  "Id":  "5a3707e4-3372-4e69-bd15-288d2ee03ccf",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "VoD MM",
+                                                  "Type":  "Digital"
+                                              },
+                                              {
+                                                  "Bandwidth":  8000000,
+                                                  "CenterFrequency":  850000000,
+                                                  "ChannelNumber":  0,
+                                                  "Configuration":  {
+                                                                        "Modulation":  "256QAM",
+                                                                        "Standard":  "AnnexA",
+                                                                        "SymbolRate":  6900000
+                                                                    },
+                                                  "Id":  "b33ec213-c339-4ce2-a0be-804d9f7a8c95",
+                                                  "IsFavorite":  false,
+                                                  "Name":  "VoD MM",
+                                                  "Type":  "Digital"
+                                              }
+                                          ],
+                             "Id":  "47334a80-7ff0-465a-9a2b-98d8e039aa8f",
+                             "Name":  "Zabrze Nowy Uklad PELNY",
+                             "RefId":  "6be4371a-f4ff-49b5-9b1b-f5d40a5ba733"
+                         }
+                     ]
+}

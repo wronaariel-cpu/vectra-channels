@@ -8,7 +8,7 @@ import type { Category } from './types'
 
 type SortKey = 'lcn' | 'name' | 'frequency' | 'transponder'
 type SortDir = 'asc' | 'desc'
-type Tab = 'new' | 'old' | 'analog-new' | 'analog-old'
+type Tab = 'new' | 'old' | 'analog-new' | 'analog-old' | 'downloads'
 
 export default function App() {
   const [tab, setTab] = useState<Tab>('new')
@@ -144,6 +144,12 @@ export default function App() {
             onClick={() => { setTab('analog-old'); setQuery(''); resetFilters() }}
           >
             Analog – Stara
+          </button>
+          <button
+            className={`tab-btn ${tab === 'downloads' ? 'active' : ''}`}
+            onClick={() => { setTab('downloads'); setQuery(''); resetFilters() }}
+          >
+            Pliki
           </button>
         </div>
 
@@ -312,6 +318,52 @@ export default function App() {
           </>
         )}
       </main>
+
+      {tab === 'downloads' && (
+        <div className="downloads-section">
+          <p className="downloads-info">
+            Plany kanałów do wgrania w mierniku. Wygenerowane na podstawie aktualnego układu Vectra Zabrze.
+          </p>
+
+          {[
+            {
+              model: 'DSP 1G',
+              desc: 'Trilithic DSP 1G / format .vpp',
+              files: [
+                { name: 'Zabrze – Nowy Układ PEŁNY (z OFDM)', file: 'Zabrze_Nowy_Uklad_PELNY.vpp' },
+                { name: 'Zabrze – Nowy Układ BEZ OFDM',       file: 'Zabrze_Nowy_Uklad_BEZ_OFDM.vpp' },
+              ],
+              base: '/plans/dsp1g/',
+            },
+            {
+              model: 'DSP 860',
+              desc: 'Trilithic DSP 860 / format .plan',
+              files: [
+                { name: 'Zabrze – Nowy Układ PEŁNY (z OFDM)', file: 'Zabrze_Nowy_Uklad_PELNY.plan' },
+                { name: 'Zabrze – Nowy Układ BEZ OFDM',       file: 'Zabrze_Nowy_Uklad_BEZ_OFDM.plan' },
+              ],
+              base: '/plans/dsp860/',
+            },
+          ].map(meter => (
+            <div key={meter.model} className="download-card">
+              <div className="download-card-header">
+                <span className="download-model">{meter.model}</span>
+                <span className="download-desc">{meter.desc}</span>
+              </div>
+              <ul className="download-list">
+                {meter.files.map(f => (
+                  <li key={f.file}>
+                    <a href={meter.base + f.file} download={f.file} className="download-link">
+                      ⬇ {f.name}
+                      <span className="download-filename">{f.file}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
 
       <footer className="app-footer">
         <img src="/avatar.jpg" alt="Ariel Wrona" className="footer-avatar" />

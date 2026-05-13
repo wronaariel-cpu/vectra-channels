@@ -116,6 +116,10 @@ app.get('/workbox-:hash.js',     (req, res, next) => {
   res.sendFile(file, err => err && next())
 })
 
+// ─── Pliki do pobrania (tylko zalogowani) ────────────────────────────────────
+
+app.use('/plans', requireAuth, express.static(path.join(__dirname, 'public', 'plans')))
+
 // ─── Trasy publiczne (auth) ───────────────────────────────────────────────────
 
 app.get('/login', (req, res) => {
