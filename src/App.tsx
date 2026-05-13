@@ -2,13 +2,14 @@ import { useState, useMemo, useEffect } from 'react'
 import { channelsNew } from './data/channels-new'
 import { channelsOld } from './data/channels-old'
 import { analogChannelsOld, analogChannelsNew } from './data/channels-analog'
+import { dtvChannels, dsChannels, vodChannels } from './data/channels-digital'
 import { CATEGORIES, getCategoryInfo } from './types'
 import type { Category } from './types'
 
 
 type SortKey = 'lcn' | 'name' | 'frequency' | 'transponder'
 type SortDir = 'asc' | 'desc'
-type Tab = 'new' | 'old' | 'analog-new' | 'analog-old' | 'downloads'
+type Tab = 'new' | 'old' | 'analog-new' | 'analog-old' | 'digital' | 'downloads'
 
 export default function App() {
   const [tab, setTab] = useState<Tab>('new')
@@ -144,6 +145,12 @@ export default function App() {
             onClick={() => { setTab('analog-old'); setQuery(''); resetFilters() }}
           >
             Analog – Stara
+          </button>
+          <button
+            className={`tab-btn ${tab === 'digital' ? 'active' : ''}`}
+            onClick={() => { setTab('digital'); setQuery(''); resetFilters() }}
+          >
+            DS / VoD
           </button>
           <button
             className={`tab-btn ${tab === 'downloads' ? 'active' : ''}`}
@@ -318,6 +325,47 @@ export default function App() {
           </>
         )}
       </main>
+
+      {tab === 'digital' && (
+        <div className="digital-section">
+          {[
+            { title: 'DTV — Transponders MPEG-TS', channels: dtvChannels, color: '#1a3a8f' },
+            { title: 'DS — Downstream EURODOCSIS', channels: dsChannels, color: '#0d6b3a' },
+            { title: 'VoD — Video on Demand',       channels: vodChannels, color: '#7c3d8f' },
+          ].map(section => (
+            <div key={section.title} className="digital-card">
+              <div className="digital-card-header" style={{ background: section.color }}>
+                {section.title}
+                <span className="digital-count">{section.channels.length} kanałów</span>
+              </div>
+              <div className="table-wrap">
+                <table className="channel-table digital-table">
+                  <thead>
+                    <tr>
+                      <th className="col-name">Transponder</th>
+                      <th className="col-freq">Częst. (MHz)</th>
+                      <th className="col-sr">Symbol Rate</th>
+                      <th className="col-qam">QAM</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {section.channels.map(ch => (
+                      <tr key={ch.centerFreq}>
+                        <td className="col-name ch-name">{ch.name}</td>
+                        <td className="col-freq">{ch.centerFreq}</td>
+                        <td className="col-sr">{(ch.symbolRate / 1000000).toFixed(3)} Msymb/s</td>
+                        <td className="col-qam">
+                          <span className="qam-badge">{ch.qam}</span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
 
       {tab === 'downloads' && (
         <div className="downloads-section">
