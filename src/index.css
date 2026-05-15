@@ -246,6 +246,22 @@ body {
 .placeholder h2 { font-size: 1.3rem; margin-bottom: 8px; color: #2a3a5a; }
 .placeholder p { font-size: .95rem; }
 
+/* ── Network selector ── */
+.network-select {
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: .85rem;
+  cursor: pointer;
+  outline: none;
+  margin-top: 3px;
+  transition: background .15s;
+}
+.network-select:hover { background: rgba(255,255,255,.25); }
+.network-select option { background: #0d1b4b; color: #fff; }
+
 /* ── Theme toggle button ── */
 .btn-theme {
   background: rgba(255,255,255,.15);

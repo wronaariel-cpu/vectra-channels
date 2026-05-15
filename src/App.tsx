@@ -3,6 +3,7 @@ import { channelsNew } from './data/channels-new'
 import { channelsOld } from './data/channels-old'
 import { analogChannelsOld, analogChannelsNew } from './data/channels-analog'
 import { dtvChannels, dsChannels, vodChannels } from './data/channels-digital'
+import { channelsElsat } from './data/channels-elsat'
 import { CATEGORIES, getCategoryInfo } from './types'
 import type { Category } from './types'
 
@@ -10,9 +11,11 @@ import type { Category } from './types'
 type SortKey = 'lcn' | 'name' | 'frequency' | 'transponder'
 type SortDir = 'asc' | 'desc'
 type Tab = 'new' | 'old' | 'analog-new' | 'analog-old' | 'digital' | 'downloads'
+type Network = 'zabrze' | 'elsat'
 
 export default function App() {
   const [tab, setTab] = useState<Tab>('new')
+  const [network, setNetwork] = useState<Network>('zabrze')
   const [query, setQuery] = useState('')
   const [tvOnly, setTvOnly] = useState(false)
   const [user, setUser] = useState<{ email: string; role: string } | null>(null)
@@ -22,6 +25,10 @@ export default function App() {
     document.body.classList.toggle('dark', dark)
     localStorage.setItem('vectra-theme', dark ? 'dark' : 'light')
   }, [dark])
+
+  useEffect(() => {
+    if (network === 'elsat' && tab !== 'new') setTab('new')
+  }, [network])
 
   useEffect(() => {
     fetch('/api/me').then(r => r.ok ? r.json() : null).then(d => {
@@ -55,7 +62,7 @@ export default function App() {
 
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim()
-    const channels = tab === 'new' ? channelsNew : channelsOld
+    const channels = network === 'elsat' ? channelsElsat : (tab === 'new' ? channelsNew : channelsOld)
 
     return channels
       .filter(ch => {
@@ -78,9 +85,9 @@ export default function App() {
         else if (sortKey === 'transponder') cmp = a.transponder - b.transponder
         return sortDir === 'asc' ? cmp : -cmp
       })
-  }, [tab, query, tvOnly, activeCats, sortKey, sortDir])
+  }, [tab, query, tvOnly, activeCats, sortKey, sortDir, network])
 
-  const total = tab === 'new' ? channelsNew.length : channelsOld.length
+  const total = network === 'elsat' ? channelsElsat.length : (tab === 'new' ? channelsNew.length : channelsOld.length)
 
   const arrow = (key: SortKey) => {
     if (sortKey !== key) return <span className="sort-arrow neutral">↕</span>
@@ -95,7 +102,14 @@ export default function App() {
             <span className="header-logo">📡</span>
             <div>
               <h1>Vectra – Lista Kanałów</h1>
-              <p>Zabrze / Play</p>
+              <select
+                className="network-select"
+                value={network}
+                onChange={e => setNetwork(e.target.value as Network)}
+              >
+                <option value="zabrze">Zabrze / Play</option>
+                <option value="elsat">Elsat</option>
+              </select>
             </div>
             <button className="btn-theme" onClick={() => setDark(d => !d)} title="Zmień motyw">
               {dark ? '☀️' : '🌙'}
@@ -128,36 +142,38 @@ export default function App() {
           >
             Nowa lista
           </button>
-          <button
-            className={`tab-btn ${tab === 'old' ? 'active' : ''}`}
-            onClick={() => { setTab('old'); setQuery(''); resetFilters() }}
-          >
-            Stara lista
-          </button>
-          <button
-            className={`tab-btn ${tab === 'analog-new' ? 'active' : ''}`}
-            onClick={() => { setTab('analog-new'); setQuery(''); resetFilters() }}
-          >
-            Analog – Nowa
-          </button>
-          <button
-            className={`tab-btn ${tab === 'analog-old' ? 'active' : ''}`}
-            onClick={() => { setTab('analog-old'); setQuery(''); resetFilters() }}
-          >
-            Analog – Stara
-          </button>
-          <button
-            className={`tab-btn ${tab === 'digital' ? 'active' : ''}`}
-            onClick={() => { setTab('digital'); setQuery(''); resetFilters() }}
-          >
-            DS / VoD
-          </button>
-          <button
-            className={`tab-btn ${tab === 'downloads' ? 'active' : ''}`}
-            onClick={() => { setTab('downloads'); setQuery(''); resetFilters() }}
-          >
-            Pliki
-          </button>
+          {network === 'zabrze' && <>
+            <button
+              className={`tab-btn ${tab === 'old' ? 'active' : ''}`}
+              onClick={() => { setTab('old'); setQuery(''); resetFilters() }}
+            >
+              Stara lista
+            </button>
+            <button
+              className={`tab-btn ${tab === 'analog-new' ? 'active' : ''}`}
+              onClick={() => { setTab('analog-new'); setQuery(''); resetFilters() }}
+            >
+              Analog – Nowa
+            </button>
+            <button
+              className={`tab-btn ${tab === 'analog-old' ? 'active' : ''}`}
+              onClick={() => { setTab('analog-old'); setQuery(''); resetFilters() }}
+            >
+              Analog – Stara
+            </button>
+            <button
+              className={`tab-btn ${tab === 'digital' ? 'active' : ''}`}
+              onClick={() => { setTab('digital'); setQuery(''); resetFilters() }}
+            >
+              DS / VoD
+            </button>
+            <button
+              className={`tab-btn ${tab === 'downloads' ? 'active' : ''}`}
+              onClick={() => { setTab('downloads'); setQuery(''); resetFilters() }}
+            >
+              Pliki
+            </button>
+          </>}
         </div>
 
         {(tab === 'new' || tab === 'old') && <>
