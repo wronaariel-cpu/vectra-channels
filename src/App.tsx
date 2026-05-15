@@ -3,6 +3,7 @@ import { channelsNew } from './data/channels-new'
 import { channelsOld } from './data/channels-old'
 import { analogChannelsOld, analogChannelsNew } from './data/channels-analog'
 import { dtvChannels, dsChannels, vodChannels } from './data/channels-digital'
+import { dsElsatChannels } from './data/channels-digital-elsat'
 import { channelsElsat } from './data/channels-elsat'
 import { CATEGORIES, getCategoryInfo } from './types'
 import type { Category } from './types'
@@ -10,7 +11,7 @@ import type { Category } from './types'
 
 type SortKey = 'lcn' | 'name' | 'frequency' | 'transponder'
 type SortDir = 'asc' | 'desc'
-type Tab = 'new' | 'old' | 'analog-new' | 'analog-old' | 'digital' | 'downloads'
+type Tab = 'new' | 'old' | 'analog-new' | 'analog-old' | 'digital' | 'downloads' | 'elsat-ds'
 type Network = 'zabrze' | 'elsat'
 
 export default function App() {
@@ -27,7 +28,8 @@ export default function App() {
   }, [dark])
 
   useEffect(() => {
-    if (network === 'elsat' && tab !== 'new') setTab('new')
+    if (network === 'elsat' && tab !== 'new' && tab !== 'elsat-ds') setTab('new')
+    if (network === 'zabrze' && tab === 'elsat-ds') setTab('new')
   }, [network])
 
   useEffect(() => {
@@ -151,6 +153,14 @@ export default function App() {
           >
             Nowa lista
           </button>
+          {network === 'elsat' && (
+            <button
+              className={`tab-btn ${tab === 'elsat-ds' ? 'active' : ''}`}
+              onClick={() => { setTab('elsat-ds'); setQuery(''); resetFilters() }}
+            >
+              DS
+            </button>
+          )}
           {network === 'zabrze' && <>
             <button
               className={`tab-btn ${tab === 'old' ? 'active' : ''}`}
@@ -435,6 +445,41 @@ export default function App() {
               </ul>
             </div>
           ))}
+        </div>
+      )}
+
+      {tab === 'elsat-ds' && (
+        <div className="digital-section">
+          <div className="digital-card">
+            <div className="digital-card-header" style={{ background: '#0d6b3a' }}>
+              DS — Downstream EURODOCSIS (Elsat)
+              <span className="digital-count">{dsElsatChannels.length} kanałów</span>
+            </div>
+            <div className="table-wrap">
+              <table className="channel-table digital-table">
+                <thead>
+                  <tr>
+                    <th className="col-name">Transponder</th>
+                    <th className="col-freq">Częst. (MHz)</th>
+                    <th className="col-sr">Symbol Rate</th>
+                    <th className="col-qam">QAM</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {dsElsatChannels.map(ch => (
+                    <tr key={ch.centerFreq}>
+                      <td className="col-name ch-name">{ch.name}</td>
+                      <td className="col-freq">{ch.centerFreq}</td>
+                      <td className="col-sr">{(ch.symbolRate / 1000000).toFixed(3)} Msymb/s</td>
+                      <td className="col-qam">
+                        <span className="qam-badge">{ch.qam}</span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       )}
 
