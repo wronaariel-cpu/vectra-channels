@@ -60,15 +60,24 @@ export default function App() {
     else { setSortKey(key); setSortDir('asc') }
   }
 
+  // Elsat uses same LCN ranges but radio is 801-810 (not 1-99), and 1-99 are TV
+  const getEffectiveCatInfo = (lcn: number) => {
+    if (network === 'elsat') {
+      if (lcn >= 800 && lcn <= 899) return CATEGORIES.find(c => c.key === 'radio')!
+      if (lcn < 100)                return CATEGORIES.find(c => c.key === 'ogolne')!
+    }
+    return getCategoryInfo(lcn)
+  }
+
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim()
     const channels = network === 'elsat' ? channelsElsat : (tab === 'new' ? channelsNew : channelsOld)
-
     return channels
       .filter(ch => {
-        const catInfo = getCategoryInfo(ch.lcn)
-        if (tvOnly && ch.lcn < 100) return false
-        if (activeCats.size > 0 && !activeCats.has(catInfo.key)) return false
+        const catKey = getEffectiveCatInfo(ch.lcn).key
+        const isRadio = catKey === 'radio'
+        if (tvOnly && isRadio) return false
+        if (activeCats.size > 0 && !activeCats.has(catKey)) return false
         if (!q) return true
         return (
           ch.name.toLowerCase().includes(q) ||
@@ -270,7 +279,7 @@ export default function App() {
                     </tr>
                   ) : (
                     filtered.map(ch => {
-                      const cat = getCategoryInfo(ch.lcn)
+                      const cat = getEffectiveCatInfo(ch.lcn)
                       return (
                         <tr key={ch.serviceId} style={dark ? {} : { background: cat.bg }}>
                           <td className="col-lcn lcn-num">{ch.lcn}</td>
