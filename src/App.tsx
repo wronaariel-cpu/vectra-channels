@@ -28,7 +28,7 @@ export default function App() {
   }, [dark])
 
   useEffect(() => {
-    if (network === 'elsat' && tab !== 'new' && tab !== 'elsat-ds') setTab('new')
+    if (network === 'elsat' && tab !== 'new' && tab !== 'elsat-ds' && tab !== 'downloads') setTab('new')
     if (network === 'zabrze' && tab === 'elsat-ds') setTab('new')
   }, [network])
 
@@ -154,12 +154,20 @@ export default function App() {
             Nowa lista
           </button>
           {network === 'elsat' && (
-            <button
-              className={`tab-btn ${tab === 'elsat-ds' ? 'active' : ''}`}
-              onClick={() => { setTab('elsat-ds'); setQuery(''); resetFilters() }}
-            >
-              DS
-            </button>
+            <>
+              <button
+                className={`tab-btn ${tab === 'elsat-ds' ? 'active' : ''}`}
+                onClick={() => { setTab('elsat-ds'); setQuery(''); resetFilters() }}
+              >
+                DS
+              </button>
+              <button
+                className={`tab-btn ${tab === 'downloads' ? 'active' : ''}`}
+                onClick={() => { setTab('downloads'); setQuery(''); resetFilters() }}
+              >
+                Pliki
+              </button>
+            </>
           )}
           {network === 'zabrze' && <>
             <button
@@ -405,26 +413,32 @@ export default function App() {
       {tab === 'downloads' && (
         <div className="downloads-section">
           <p className="downloads-info">
-            Plany kanałów do wgrania w mierniku. Wygenerowane na podstawie aktualnego układu Vectra Zabrze.
+            {network === 'elsat'
+              ? 'Plany kanałów do wgrania w mierniku. Wygenerowane na podstawie układu Elsat (42 DTV + 32 DS).'
+              : 'Plany kanałów do wgrania w mierniku. Wygenerowane na podstawie aktualnego układu Vectra Zabrze.'}
           </p>
 
           {[
             {
               model: 'DSP 1G',
               desc: 'Trilithic DSP 1G / format .vpp',
-              files: [
-                { name: 'Zabrze – Nowy Układ PEŁNY (z OFDM)', file: 'Zabrze_Nowy_Uklad_PELNY.vpp' },
-                { name: 'Zabrze – Nowy Układ BEZ OFDM',       file: 'Zabrze_Nowy_Uklad_BEZ_OFDM.vpp' },
-              ],
+              files: network === 'elsat'
+                ? [{ name: 'Elsat – Plan PEŁNY (DTV + DS)', file: 'Elsat_PELNY.vpp' }]
+                : [
+                    { name: 'Zabrze – Nowy Układ PEŁNY (z OFDM)', file: 'Zabrze_Nowy_Uklad_PELNY.vpp' },
+                    { name: 'Zabrze – Nowy Układ BEZ OFDM',       file: 'Zabrze_Nowy_Uklad_BEZ_OFDM.vpp' },
+                  ],
               base: '/plans/dsp1g/',
             },
             {
               model: 'DSP 860',
               desc: 'Trilithic DSP 860 / format .plan',
-              files: [
-                { name: 'Zabrze – Nowy Układ PEŁNY (z OFDM)', file: 'Zabrze_Nowy_Uklad_PELNY.plan' },
-                { name: 'Zabrze – Nowy Układ BEZ OFDM',       file: 'Zabrze_Nowy_Uklad_BEZ_OFDM.plan' },
-              ],
+              files: network === 'elsat'
+                ? [{ name: 'Elsat – Plan PEŁNY (DTV + DS)', file: 'Elsat_PELNY.plan' }]
+                : [
+                    { name: 'Zabrze – Nowy Układ PEŁNY (z OFDM)', file: 'Zabrze_Nowy_Uklad_PELNY.plan' },
+                    { name: 'Zabrze – Nowy Układ BEZ OFDM',       file: 'Zabrze_Nowy_Uklad_BEZ_OFDM.plan' },
+                  ],
               base: '/plans/dsp860/',
             },
           ].map(meter => (
