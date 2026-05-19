@@ -8,32 +8,35 @@ export interface PdfExportOptions {
   getCategoryLabel: (lcn: number) => string
 }
 
-let cachedFontB64: string | null = null
+const fontCache: Record<string, string> = {}
 
-async function loadFont(): Promise<string> {
-  if (cachedFontB64) return cachedFontB64
-  const res = await fetch('/fonts/Roboto-Regular.ttf')
+async function loadFont(url: string): Promise<string> {
+  if (fontCache[url]) return fontCache[url]
+  const res = await fetch(url)
   const buf = await res.arrayBuffer()
   const bytes = new Uint8Array(buf)
   let b64 = ''
   for (let i = 0; i < bytes.length; i += 3000) {
     b64 += String.fromCharCode(...bytes.subarray(i, i + 3000))
   }
-  cachedFontB64 = btoa(b64)
-  return cachedFontB64
+  fontCache[url] = btoa(b64)
+  return fontCache[url]
 }
 
 async function buildDoc({ channels, title, subtitle, getCategoryLabel }: PdfExportOptions) {
-  const [{ jsPDF }, { default: autoTable }, fontB64] = await Promise.all([
+  const [{ jsPDF }, { default: autoTable }, fontRegular, fontBold] = await Promise.all([
     import('jspdf'),
     import('jspdf-autotable'),
-    loadFont(),
+    loadFont('/fonts/Roboto-Regular.ttf'),
+    loadFont('/fonts/Roboto-Bold.ttf'),
   ])
 
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
 
-  doc.addFileToVFS('Roboto-Regular.ttf', fontB64)
+  doc.addFileToVFS('Roboto-Regular.ttf', fontRegular)
   doc.addFont('Roboto-Regular.ttf', 'Roboto', 'normal')
+  doc.addFileToVFS('Roboto-Bold.ttf', fontBold)
+  doc.addFont('Roboto-Bold.ttf', 'Roboto', 'bold')
   doc.setFont('Roboto')
 
   const date = new Date().toLocaleDateString('pl-PL', { day: '2-digit', month: '2-digit', year: 'numeric' })
@@ -104,15 +107,18 @@ export async function printPdf(options: PdfExportOptions) {
 // ── Analog ────────────────────────────────────────────────────────────────────
 
 async function buildAnalogDoc(channels: AnalogChannel[], title: string, subtitle: string) {
-  const [{ jsPDF }, { default: autoTable }, fontB64] = await Promise.all([
+  const [{ jsPDF }, { default: autoTable }, fontRegular, fontBold] = await Promise.all([
     import('jspdf'),
     import('jspdf-autotable'),
-    loadFont(),
+    loadFont('/fonts/Roboto-Regular.ttf'),
+    loadFont('/fonts/Roboto-Bold.ttf'),
   ])
 
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
-  doc.addFileToVFS('Roboto-Regular.ttf', fontB64)
+  doc.addFileToVFS('Roboto-Regular.ttf', fontRegular)
   doc.addFont('Roboto-Regular.ttf', 'Roboto', 'normal')
+  doc.addFileToVFS('Roboto-Bold.ttf', fontBold)
+  doc.addFont('Roboto-Bold.ttf', 'Roboto', 'bold')
   doc.setFont('Roboto')
 
   const date = new Date().toLocaleDateString('pl-PL', { day: '2-digit', month: '2-digit', year: 'numeric' })
