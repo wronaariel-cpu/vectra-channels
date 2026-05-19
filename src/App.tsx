@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import { channelsNew } from './data/channels-new'
 import { channelsOld } from './data/channels-old'
 import { analogChannelsOld, analogChannelsNew } from './data/channels-analog'
@@ -23,6 +23,16 @@ export default function App() {
   const [user, setUser] = useState<{ email: string; role: string } | null>(null)
   const [dark, setDark] = useState(() => localStorage.getItem('vectra-theme') === 'dark')
   const [pdfLoading, setPdfLoading] = useState(false)
+  const [netOpen, setNetOpen] = useState(false)
+  const netRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (netRef.current && !netRef.current.contains(e.target as Node)) setNetOpen(false)
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
 
   useEffect(() => {
     document.body.classList.toggle('dark', dark)
@@ -115,14 +125,25 @@ export default function App() {
             <span className="header-logo">📡</span>
             <div>
               <h1>Vectra – Lista Kanałów</h1>
-              <select
-                className="network-select"
-                value={network}
-                onChange={e => setNetwork(e.target.value as Network)}
-              >
-                <option value="zabrze">Zabrze / Play</option>
-                <option value="elsat">Elsat</option>
-              </select>
+              <div className="net-dropdown" ref={netRef}>
+                <div className="net-dropdown-btn" onClick={() => setNetOpen(o => !o)}>
+                  {network === 'zabrze' ? 'Zabrze / Play' : 'Elsat'}
+                  <span className="net-arrow">{netOpen ? '▲' : '▼'}</span>
+                </div>
+                {netOpen && (
+                  <div className="net-dropdown-menu">
+                    {(['zabrze', 'elsat'] as Network[]).map(n => (
+                      <div
+                        key={n}
+                        className={`net-dropdown-option${network === n ? ' selected' : ''}`}
+                        onClick={() => { if (network !== n) setNetwork(n); setNetOpen(false) }}
+                      >
+                        {n === 'zabrze' ? 'Zabrze / Play' : 'Elsat'}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
             <button className="btn-theme" onClick={() => setDark(d => !d)} title="Zmień motyw">
               {dark ? '☀️' : '🌙'}

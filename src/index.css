@@ -259,21 +259,35 @@ body {
 .placeholder h2 { font-size: 1.3rem; margin-bottom: 8px; color: #2a3a5a; }
 .placeholder p { font-size: .95rem; }
 
-/* ── Network selector ── */
-.network-select {
+/* ── Network selector (custom dropdown) ── */
+.net-dropdown { position: relative; margin-top: 3px; }
+.net-dropdown-btn {
+  display: flex; align-items: center; gap: 6px;
   background: rgba(255,255,255,.15);
   border: 1px solid rgba(255,255,255,.3);
-  color: #fff;
-  padding: 3px 8px;
-  border-radius: 6px;
-  font-size: .85rem;
-  cursor: pointer;
-  outline: none;
-  margin-top: 3px;
+  color: #fff; padding: 4px 10px;
+  border-radius: 6px; font-size: .85rem;
+  cursor: pointer; white-space: nowrap;
   transition: background .15s;
+  user-select: none;
 }
-.network-select:hover { background: rgba(255,255,255,.25); }
-.network-select option { background: #0d1b4b; color: #fff; }
+.net-dropdown-btn:hover { background: rgba(255,255,255,.25); }
+.net-dropdown-btn .net-arrow { font-size: .65rem; opacity: .7; }
+.net-dropdown-menu {
+  position: absolute; top: calc(100% + 4px); left: 0;
+  background: #0d1b4b;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 7px; overflow: hidden;
+  min-width: 100%; z-index: 999;
+  box-shadow: 0 6px 20px rgba(0,0,0,.4);
+}
+.net-dropdown-option {
+  padding: 7px 14px; color: #fff; font-size: .85rem;
+  cursor: pointer; white-space: nowrap;
+  transition: background .12s;
+}
+.net-dropdown-option:hover { background: rgba(255,255,255,.18); }
+.net-dropdown-option.selected { background: rgba(255,255,255,.08); color: rgba(255,255,255,.5); cursor: default; }
 
 /* ── Theme toggle button ── */
 .btn-theme {
