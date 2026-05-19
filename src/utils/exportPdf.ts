@@ -1,20 +1,5 @@
 import type { Channel } from '../types'
 
-// jsPDF domyślnie używa Helvetica bez obsługi polskich znaków —
-// zamieniamy diakrytyki na ASCII żeby uniknąć „?" w pliku
-function norm(s: string): string {
-  return s
-    .replace(/[ąĄ]/g, a => a === 'ą' ? 'a' : 'A')
-    .replace(/[ćĆ]/g, a => a === 'ć' ? 'c' : 'C')
-    .replace(/[ęĘ]/g, a => a === 'ę' ? 'e' : 'E')
-    .replace(/[łŁ]/g, a => a === 'ł' ? 'l' : 'L')
-    .replace(/[ńŃ]/g, a => a === 'ń' ? 'n' : 'N')
-    .replace(/[óÓ]/g, a => a === 'ó' ? 'o' : 'O')
-    .replace(/[śŚ]/g, a => a === 'ś' ? 's' : 'S')
-    .replace(/[źŹ]/g, a => a === 'ź' ? 'z' : 'Z')
-    .replace(/[żŻ]/g, a => a === 'ż' ? 'z' : 'Z')
-}
-
 export interface PdfExportOptions {
   channels: Channel[]
   title: string
@@ -22,39 +7,63 @@ export interface PdfExportOptions {
   getCategoryLabel: (lcn: number) => string
 }
 
+let cachedFontB64: string | null = null
+
+async function loadFont(): Promise<string> {
+  if (cachedFontB64) return cachedFontB64
+  const res = await fetch('/fonts/Roboto-Regular.ttf')
+  const buf = await res.arrayBuffer()
+  const bytes = new Uint8Array(buf)
+  let b64 = ''
+  for (let i = 0; i < bytes.length; i += 3000) {
+    b64 += String.fromCharCode(...bytes.subarray(i, i + 3000))
+  }
+  cachedFontB64 = btoa(b64)
+  return cachedFontB64
+}
+
 async function buildDoc({ channels, title, subtitle, getCategoryLabel }: PdfExportOptions) {
-  const { jsPDF } = await import('jspdf')
-  const { default: autoTable } = await import('jspdf-autotable')
+  const [{ jsPDF }, { default: autoTable }, fontB64] = await Promise.all([
+    import('jspdf'),
+    import('jspdf-autotable'),
+    loadFont(),
+  ])
+
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
+
+  doc.addFileToVFS('Roboto-Regular.ttf', fontB64)
+  doc.addFont('Roboto-Regular.ttf', 'Roboto', 'normal')
+  doc.setFont('Roboto')
+
   const date = new Date().toLocaleDateString('pl-PL', { day: '2-digit', month: '2-digit', year: 'numeric' })
 
   doc.setFontSize(16)
   doc.setTextColor(13, 27, 75)
-  doc.text(norm(title), 14, 18)
+  doc.text(title, 14, 18)
 
   let y = 26
   if (subtitle) {
     doc.setFontSize(10)
     doc.setTextColor(80, 80, 80)
-    doc.text(norm(subtitle), 14, y)
+    doc.text(subtitle, 14, y)
     y += 7
   }
 
   doc.setFontSize(8)
   doc.setTextColor(130, 130, 130)
-  doc.text(`Wygenerowano: ${date}   |   Kanalow: ${channels.length}`, 14, y)
+  doc.text(`Wygenerowano: ${date}   |   Kanałów: ${channels.length}`, 14, y)
 
   autoTable(doc, {
     startY: y + 5,
-    head: [['Nr', 'Nazwa kanalu', 'Czest. (MHz)', 'TP', 'Kategoria']],
+    head: [['Nr', 'Nazwa kanału', 'Częst. (MHz)', 'TP', 'Kategoria']],
     body: channels.map(ch => [
       ch.lcn,
-      norm(ch.name),
+      ch.name,
       ch.frequency,
       ch.transponder,
-      norm(getCategoryLabel(ch.lcn)),
+      getCategoryLabel(ch.lcn),
     ]),
-    styles: { fontSize: 7.5, cellPadding: 1.8 },
+    styles: { fontSize: 7.5, cellPadding: 1.8, font: 'Roboto' },
     headStyles: { fillColor: [13, 27, 75], textColor: 255, fontStyle: 'bold', fontSize: 8 },
     alternateRowStyles: { fillColor: [245, 247, 255] },
     columnStyles: {
@@ -67,7 +76,6 @@ async function buildDoc({ channels, title, subtitle, getCategoryLabel }: PdfExpo
     margin: { left: 14, right: 14 },
   })
 
-  // Numeracja stron
   const pageCount = (doc as any).internal.getNumberOfPages()
   doc.setFontSize(7)
   doc.setTextColor(160, 160, 160)
@@ -88,7 +96,6 @@ export async function printPdf(options: PdfExportOptions) {
   const doc = await buildDoc(options)
   doc.autoPrint()
   const url = URL.createObjectURL(doc.output('blob'))
-  const win = window.open(url, '_blank')
+  window.open(url, '_blank')
   setTimeout(() => URL.revokeObjectURL(url), 10_000)
-  return win
 }
