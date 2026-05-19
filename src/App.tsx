@@ -7,7 +7,7 @@ import { dsElsatChannels } from './data/channels-digital-elsat'
 import { channelsElsat } from './data/channels-elsat'
 import { CATEGORIES, getCategoryInfo } from './types'
 import type { Category } from './types'
-import { downloadPdf, printPdf } from './utils/exportPdf'
+import { downloadPdf, printPdf, downloadAnalogPdf, printAnalogPdf } from './utils/exportPdf'
 
 
 type SortKey = 'lcn' | 'name' | 'frequency' | 'transponder'
@@ -370,11 +370,60 @@ export default function App() {
         {/* Analog tabs */}
         {(tab === 'analog-new' || tab === 'analog-old') && (
           <>
-            <div className="old-list-info">
-              {tab === 'analog-old'
-                ? <><strong>Układ aktualny (stary):</strong> pasmo analogowe 111–223 MHz — programy nadawane analogowo w sieci Vectra Zabrze.</>
-                : <><strong>Nowy układ:</strong> programy analogowe przeniesione na wyższe częstotliwości (703–799 MHz). TV PULS pozostaje na 111 MHz.</>
-              }
+            <div className="old-list-info" style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+              <span>
+                {tab === 'analog-old'
+                  ? <><strong>Układ aktualny (stary):</strong> pasmo analogowe 111–223 MHz — programy nadawane analogowo w sieci Vectra Zabrze.</>
+                  : <><strong>Nowy układ:</strong> programy analogowe przeniesione na wyższe częstotliwości (703–799 MHz). TV PULS pozostaje na 111 MHz.</>
+                }
+              </span>
+              {tab === 'analog-new' && (
+                <div className="pdf-btns" style={{ marginLeft: 'auto' }}>
+                  <button
+                    className="btn-pdf"
+                    disabled={pdfLoading}
+                    onClick={async () => {
+                      setPdfLoading(true)
+                      try {
+                        await downloadAnalogPdf(
+                          analogChannelsNew,
+                          'Lista kanałów analogowych',
+                          'Vectra Zabrze – Nowy układ (analog)',
+                          'Vectra_Zabrze_Analog_Nowy.pdf'
+                        )
+                      } catch (e) {
+                        alert('Błąd generowania PDF. Spróbuj ponownie.')
+                        console.error(e)
+                      } finally {
+                        setPdfLoading(false)
+                      }
+                    }}
+                  >
+                    {pdfLoading ? '⏳ …' : '⬇ PDF'}
+                  </button>
+                  <button
+                    className="btn-pdf btn-pdf-print"
+                    disabled={pdfLoading}
+                    onClick={async () => {
+                      setPdfLoading(true)
+                      try {
+                        await printAnalogPdf(
+                          analogChannelsNew,
+                          'Lista kanałów analogowych',
+                          'Vectra Zabrze – Nowy układ (analog)'
+                        )
+                      } catch (e) {
+                        alert('Błąd generowania PDF. Spróbuj ponownie.')
+                        console.error(e)
+                      } finally {
+                        setPdfLoading(false)
+                      }
+                    }}
+                  >
+                    🖨 Drukuj
+                  </button>
+                </div>
+              )}
             </div>
             <div className="table-wrap">
               <table className="channel-table">
