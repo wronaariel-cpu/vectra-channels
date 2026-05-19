@@ -260,7 +260,7 @@ body {
 .placeholder p { font-size: .95rem; }
 
 /* ── Network selector (custom dropdown) ── */
-.net-dropdown { position: relative; margin-top: 3px; }
+.net-dropdown { position: relative; margin-top: 3px; display: inline-block; }
 .net-dropdown-btn {
   display: flex; align-items: center; gap: 6px;
   background: rgba(255,255,255,.15);
