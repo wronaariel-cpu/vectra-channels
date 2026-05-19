@@ -118,6 +118,7 @@ app.get('/workbox-:hash.js',     (req, res, next) => {
 
 // ─── Pliki do pobrania (tylko zalogowani) ────────────────────────────────────
 
+app.use('/fonts', express.static(path.join(__dirname, 'public', 'fonts')))
 app.use('/plans', requireAuth, express.static(path.join(__dirname, 'public', 'plans')))
 
 // ─── Trasy publiczne (auth) ───────────────────────────────────────────────────

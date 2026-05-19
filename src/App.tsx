@@ -22,6 +22,7 @@ export default function App() {
   const [tvOnly, setTvOnly] = useState(false)
   const [user, setUser] = useState<{ email: string; role: string } | null>(null)
   const [dark, setDark] = useState(() => localStorage.getItem('vectra-theme') === 'dark')
+  const [pdfLoading, setPdfLoading] = useState(false)
 
   useEffect(() => {
     document.body.classList.toggle('dark', dark)
@@ -234,22 +235,40 @@ export default function App() {
                 <button
                   className="btn-pdf"
                   title="Pobierz jako PDF"
-                  onClick={() => {
+                  disabled={pdfLoading}
+                  onClick={async () => {
                     const subtitle = network === 'elsat' ? 'Elsat – Nowa lista' : tab === 'new' ? 'Vectra Zabrze – Nowa lista' : 'Vectra Zabrze – Stara lista'
-                    downloadPdf(
-                      { channels: filtered, title: 'Lista kanalow', subtitle, getCategoryLabel: lcn => getEffectiveCatInfo(lcn).label },
-                      `${subtitle.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`
-                    )
+                    setPdfLoading(true)
+                    try {
+                      await downloadPdf(
+                        { channels: filtered, title: 'Lista kanałów', subtitle, getCategoryLabel: lcn => getEffectiveCatInfo(lcn).label },
+                        `${subtitle.replace(/\s+/g, '_').replace(/–/g, '-')}.pdf`
+                      )
+                    } catch (e) {
+                      alert('Błąd generowania PDF. Spróbuj ponownie.')
+                      console.error(e)
+                    } finally {
+                      setPdfLoading(false)
+                    }
                   }}
                 >
-                  ⬇ PDF
+                  {pdfLoading ? '⏳ …' : '⬇ PDF'}
                 </button>
                 <button
                   className="btn-pdf btn-pdf-print"
                   title="Drukuj"
-                  onClick={() => {
+                  disabled={pdfLoading}
+                  onClick={async () => {
                     const subtitle = network === 'elsat' ? 'Elsat – Nowa lista' : tab === 'new' ? 'Vectra Zabrze – Nowa lista' : 'Vectra Zabrze – Stara lista'
-                    printPdf({ channels: filtered, title: 'Lista kanalow', subtitle, getCategoryLabel: lcn => getEffectiveCatInfo(lcn).label })
+                    setPdfLoading(true)
+                    try {
+                      await printPdf({ channels: filtered, title: 'Lista kanałów', subtitle, getCategoryLabel: lcn => getEffectiveCatInfo(lcn).label })
+                    } catch (e) {
+                      alert('Błąd generowania PDF. Spróbuj ponownie.')
+                      console.error(e)
+                    } finally {
+                      setPdfLoading(false)
+                    }
                   }}
                 >
                   🖨 Drukuj
