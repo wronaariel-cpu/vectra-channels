@@ -7,6 +7,7 @@ import { dsElsatChannels } from './data/channels-digital-elsat'
 import { channelsElsat } from './data/channels-elsat'
 import { CATEGORIES, getCategoryInfo } from './types'
 import type { Category } from './types'
+import { downloadPdf, printPdf } from './utils/exportPdf'
 
 
 type SortKey = 'lcn' | 'name' | 'frequency' | 'transponder'
@@ -229,6 +230,31 @@ export default function App() {
               <span className="result-count">
                 {filtered.length} / {total} kanałów
               </span>
+              <div className="pdf-btns">
+                <button
+                  className="btn-pdf"
+                  title="Pobierz jako PDF"
+                  onClick={() => {
+                    const subtitle = network === 'elsat' ? 'Elsat – Nowa lista' : tab === 'new' ? 'Vectra Zabrze – Nowa lista' : 'Vectra Zabrze – Stara lista'
+                    downloadPdf(
+                      { channels: filtered, title: 'Lista kanalow', subtitle, getCategoryLabel: lcn => getEffectiveCatInfo(lcn).label },
+                      `${subtitle.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`
+                    )
+                  }}
+                >
+                  ⬇ PDF
+                </button>
+                <button
+                  className="btn-pdf btn-pdf-print"
+                  title="Drukuj"
+                  onClick={() => {
+                    const subtitle = network === 'elsat' ? 'Elsat – Nowa lista' : tab === 'new' ? 'Vectra Zabrze – Nowa lista' : 'Vectra Zabrze – Stara lista'
+                    printPdf({ channels: filtered, title: 'Lista kanalow', subtitle, getCategoryLabel: lcn => getEffectiveCatInfo(lcn).label })
+                  }}
+                >
+                  🖨 Drukuj
+                </button>
+              </div>
             </div>
 
             {/* Category filters */}

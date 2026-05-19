@@ -72,6 +72,19 @@ body {
   margin-bottom: 12px;
   flex-wrap: wrap;
 }
+.pdf-btns { display: flex; gap: 6px; margin-left: auto; }
+.btn-pdf {
+  display: flex; align-items: center; gap: 5px;
+  background: #1a3a8f; color: #fff;
+  border: none; border-radius: 7px;
+  padding: 6px 13px; font-size: .82rem;
+  cursor: pointer; white-space: nowrap;
+  transition: background .15s, transform .1s;
+}
+.btn-pdf:hover { background: #0d2460; }
+.btn-pdf:active { transform: scale(.97); }
+.btn-pdf-print { background: #0d6b3a; }
+.btn-pdf-print:hover { background: #095030; }
 .search-wrap {
   position: relative;
   flex: 1;
