@@ -93,6 +93,7 @@ export const channelsElsat: ElsatChannel[] = [
   { lcn: 208, name: 'TBN Polska',                 frequency: '298 MHz', transponder: 106, serviceId: 6007  },
   { lcn: 209, name: 'C+I Polsat',                frequency: '314 MHz', transponder: 108, serviceId: 8037  },
   { lcn: 210, name: 'VIASAT TRUE CRIME',          frequency: '698 MHz', transponder: 136, serviceId: 36007 },
+  { lcn: 220, name: 'TVN Fabuła',                 frequency: '226 MHz', transponder: 131, serviceId: 31002 },
   { lcn: 221, name: 'FX COMEDY',                  frequency: '386 MHz', transponder: 127, serviceId: 27002 },
   { lcn: 222, name: 'FX',                         frequency: '386 MHz', transponder: 127, serviceId: 27003 },
   { lcn: 223, name: 'Comedy Central HD',          frequency: '370 MHz', transponder: 125, serviceId: 25010 },
